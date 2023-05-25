@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script>
+        // Functions
+        function info(text) {
+            console.log(text);
+        }
+        function generate_keys()
+        {
+            //let rsa = new JSEncrypt();
+        }
+        function connect_ws() {
+            var websocket = new WebSocket((DEBUG ? "ws" : "wss") + "://" + WS_PATHS.CHAT);
+            websocket.onopen = (e) => {
+                info("Connected.");
+            };
+        }
+    </script>
+    <script>
+        const DEBUG = true;
+        const HOST = location.host;
+        const WS_PATHS = {
+            CHAT: HOST + "/" + "ws"
+        };
+
+        // Connection
+        generate_keys();
+        connect_ws();
+    </script>
+</head>
+
+<body>
+    Hi!
+</body>
+
+</html>
